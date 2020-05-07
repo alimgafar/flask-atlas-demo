@@ -1,0 +1,39 @@
+import os
+from flask import Flask
+from flask_pymongo import PyMongo
+from pprint import pprint
+import pymongo
+
+app = Flask(__name__)
+
+#app.config['MONGO_URI'] = 'mongodb://127.0.0.1:27017/temp'
+app.config["MONGO_DBNAME"] = "project"
+# app.config("MONGO_REPLICA_SET") = ""
+# app.config("MONGO_USERNAME") = ""
+# app.config("MONGO_PASSWORD") = ""
+
+mongo = PyMongo(app)
+client = pymongo.MongoClient()
+
+def getDBName():
+	cursor = mongo.db.fastow_sends.find()
+	print ("Stuff starts ...")
+	showDocs(cursor)
+ 	return str()
+'''	#mystuff = dir(stuff[0])
+	print(mystuff) 
+	print("\n\n")
+	print("Stuff ends ...")
+	retVal = "<html><head><title>Count</title></head><body>" + str(stuff[0]) + "</body></html>"
+	print(retVal)  
+ 	return str(stuff)'''
+
+def showDocs(cursor):
+	for d in cursor:
+		print d['mailbox']
+
+
+'''
+if __name__ == "__main__":
+	app.run()
+'''
