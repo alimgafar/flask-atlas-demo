@@ -32,4 +32,7 @@ def removeTask(id):
 def deleteTask(id):
 	return "Deletes a specific task from the colleciton " + id
 
+@app.route("/showSignUp")
+def showSignUp():
+    return render_template("/signups.html")
 
